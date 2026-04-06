@@ -1,6 +1,6 @@
 import React from 'react';
 // 1. Mengimpor gambar sebagai modul agar diproses dengan benar oleh Vite.
-// Jalur '../../../' mundur tiga tingkat dari src/home/components/ ke folder src/
+// Jalur '../../' mundur dua tingkat dari src/home/components/ ke folder src/
 import heroImage from '../../assets/images/home.png';
 
 const HeroSection: React.FC = () => {
@@ -25,18 +25,23 @@ const HeroSection: React.FC = () => {
           </div>
 
           {/* Ilustrasi & Blob Background */}
-          <div className="relative flex justify-center lg:justify-end items-center h-[400px]">
-            {/* Blob Biru (Latar belakang geometris sesuai desain) */}
-            <div className="absolute right-0 top-0 w-full h-[120%] bg-bank-blue rounded-l-full translate-x-12 -translate-y-10 z-0"></div>
-            <div className="absolute right-0 bottom-0 w-[80%] h-32 bg-bank-yellow rounded-l-full translate-x-10 translate-y-16 z-0"></div>
+          {/* PERUBAHAN: Menggunakan min-h agar kontainer bisa meregang di layar besar */}
+          <div className="relative flex justify-center lg:justify-end items-center min-h-[400px] lg:min-h-[520px]">
             
-            {/* 2. Menggunakan variabel 'heroImage' yang diimpor di atas pada atribut src. 
-               Cara ini menjamin gambar muncul 100% accurate, baik saat development maupun production.
+            {/* Blob Biru (Latar belakang geometris) */}
+            <div className="absolute right-0 top-0 w-[110%] h-[120%] bg-bank-blue rounded-l-full translate-x-12 -translate-y-10 z-0 transition-all duration-700"></div>
+            <div className="absolute right-0 bottom-0 w-[80%] h-32 bg-bank-yellow rounded-l-full translate-x-10 translate-y-16 z-0 transition-all duration-700"></div>
+            
+            {/* PERUBAHAN UKURAN GAMBAR:
+              - max-w-[350px] untuk mobile/HP
+              - lg:max-w-[550px] untuk Laptop standar
+              - xl:max-w-[620px] untuk layar lebar (Monitor/Predator)
+              - hover:scale-105 memberikan efek membesar saat mouse diarahkan
             */}
             <img 
               src={heroImage} 
               alt="Ilustrasi Nasabah Bank Karanganyar menggunakan Layanan Aduan Digital" 
-              className="relative z-10 w-full max-w-[450px] object-contain drop-shadow-2xl"
+              className="relative z-10 w-full max-w-[350px] md:max-w-[450px] lg:max-w-[550px] xl:max-w-[620px] object-contain drop-shadow-2xl transition-transform duration-500 hover:scale-105"
             />
           </div>
 
