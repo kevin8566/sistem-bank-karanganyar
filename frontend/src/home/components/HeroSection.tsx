@@ -1,7 +1,7 @@
 import React from 'react';
 // 1. Mengimpor gambar sebagai modul agar diproses dengan benar oleh Vite.
 // Jalur '../../../' mundur tiga tingkat dari src/home/components/ ke folder src/
-import heroImage from '../../../assets/images/ddd.png';
+import heroImage from '../../assets/images/ddd.png';
 
 const HeroSection: React.FC = () => {
   return (
