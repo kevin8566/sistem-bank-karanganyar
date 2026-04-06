@@ -1,5 +1,4 @@
-import React from 'react';
-import Home from './home'; // Otomatis mengarah ke src/home/index.tsx
+import Home from './home';
 
 function App() {
   return (
